@@ -9,32 +9,36 @@ on:
                 description: Choice of Application A, B or C
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        env:
-            APP_A_PATH: "./react-app"
-            APP_B_PATH: "./pypython"
-            APP_C_PATH: "./java-maven"
-        steps:
-         - name: Installing Dependencies for ${{ inputs.app }}
-           run: |
-            if [[ "${{ inputs.app }}" == "A" ]]; then
-             echo "Installing Dependencies for  App A"
-             export APP_PATH=${{ env.APP_A_PATH }}
-             pwd
-             #cd ./react-app
-             pwd
-             npm ci
-            elif [[ "${{ inputs.app }}" == "B" ]]; then
-             echo "Installing Dependencies for  App B"
-             export APP_PATH=${{ env.APP_B_PATH }}
-             python -m pip install --upgrade pip
-             pip install flake8 pytest
-             if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-            elif [[ "${{ inputs.app }}" == "C" ]]; then
-             echo "Install and Build for Java Meven for App C"
-             export APP_PATH=${{ env.APP_C_PATH }}
-             cd ./java-maven
+  build:
+    runs-on: ubuntu-latest
+    env:
+      APP_A_PATH: "./react-app"
+      APP_B_PATH: "./pypython"
+      APP_C_PATH: "./java-maven"
+    steps:
+      - name: Installing Dependencies for ${{ inputs.app }}
+        run: |
+          if [[ "${{ inputs.app }}" == "A" ]]; then
+            echo "Installing Dependencies for App A"
+            export APP_PATH="${{ env.APP_A_PATH }}"
+            echo "Current directory:"
+            pwd
+            cd $APP_PATH
+            npm ci
+          elif [[ "${{ inputs.app }}" == "B" ]]; then
+            echo "Installing Dependencies for App B"
+            export APP_PATH="${{ env.APP_B_PATH }}"
+            python -m pip install --upgrade pip
+            pip install flake8 pytest
+            if [ -f requirements.txt ]; then
+              pip install -r requirements.txt
             fi
-
-           
+          elif [[ "${{ inputs.app }}" == "C" ]]; then
+            echo "Install and Build for Java Maven for App C"
+            export APP_PATH="${{ env.APP_C_PATH }}"
+            cd $APP_PATH
+            # Add your build commands for Java Maven here (if necessary)
+          else
+            echo "Unknown application type: ${{ inputs.app }}"
+            exit 1
+          fi
