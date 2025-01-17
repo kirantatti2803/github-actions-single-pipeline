@@ -17,7 +17,8 @@ jobs:
             if [[ "${{ inputs.app }}" == "A" ]]; then
              echo "Installing Dependencies for  App A"
              pwd
-             cd react-app
+             cd ./react-app
+             pwd
              npm ci
             elif [[ "${{ inputs.app }}" == "B" ]]; then
              echo "Installing Dependencies for  App B"
