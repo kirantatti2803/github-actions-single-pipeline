@@ -23,7 +23,7 @@ jobs:
             export APP_PATH="${{ env.APP_A_PATH }}"
             echo "Current directory:"
             pwd
-            cd $APP_PATH
+            #cd $APP_PATH
             pwd
             #npm ci
           elif [[ "${{ inputs.app }}" == "B" ]]; then
@@ -37,7 +37,7 @@ jobs:
           elif [[ "${{ inputs.app }}" == "C" ]]; then
             echo "Install and Build for Java Maven for App C"
             export APP_PATH="${{ env.APP_C_PATH }}"
-            cd $APP_PATH
+            #cd $APP_PATH
             # Add your build commands for Java Maven here (if necessary)
           else
             echo "Unknown application type: ${{ inputs.app }}"

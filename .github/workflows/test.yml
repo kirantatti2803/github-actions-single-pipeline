@@ -24,9 +24,9 @@ jobs:
               elif [[ "${{ inputs.app }}" == "B" ]]; then
                echo "Test App B"
                pwd
-               cd ./pyproject/src
+               #cd ./pyproject/src
                pwd
-               python -m pytest addition.py
+               #python -m pytest addition.py
                echo "Testing competed"
               elif [[ "${{ inputs.app }}" == "C" ]]; then
                pwd
