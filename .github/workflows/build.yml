@@ -43,6 +43,6 @@ jobs:
             echo "Unknown application type: ${{ inputs.app }}"
             exit 1
           fi
-        #if: ${{ inputs.app == 'A' }}
-        #working-directory: react-app
+        if: ${{ inputs.app == 'A' }}
+        working-directory: react-app
    
