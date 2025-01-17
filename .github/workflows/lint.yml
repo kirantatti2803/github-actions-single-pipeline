@@ -31,5 +31,5 @@ jobs:
                  echo "Lining for Java Meven completed"
                 fi             
               if: ${{ inputs.app == 'A' }}
-              working-directory: ./react-app
+              working-directory: react-app
    
