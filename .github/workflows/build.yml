@@ -25,7 +25,7 @@ jobs:
             pwd
             #cd $APP_PATH
             pwd
-            #npm ci
+            npm ci
           elif [[ "${{ inputs.app }}" == "B" ]]; then
             echo "Installing Dependencies for App B"
             export APP_PATH="${{ env.APP_B_PATH }}"
@@ -43,3 +43,6 @@ jobs:
             echo "Unknown application type: ${{ inputs.app }}"
             exit 1
           fi
+        if: ${{ inputs.app == 'A' }}
+        working-directory: ./react-app
+   

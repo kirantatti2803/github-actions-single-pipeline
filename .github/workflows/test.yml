@@ -20,7 +20,7 @@ jobs:
                pwd
                #cd ./react-app
                pwd
-               #npm test
+               npm test
               elif [[ "${{ inputs.app }}" == "B" ]]; then
                echo "Test App B"
                pwd
@@ -32,4 +32,6 @@ jobs:
                pwd
                echo "Testing completed"
               fi
-           
+            if: ${{ inputs.app == 'A' }}
+            working-directory: ./react-app
+   

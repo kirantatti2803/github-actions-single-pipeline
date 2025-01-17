@@ -18,7 +18,7 @@ jobs:
                 if [[ "${{ inputs.app }}" == "A" ]]; then
                  echo "Lint App A"
                  #cd ./react-app
-                 #npm run lint
+                 npm run lint
                 elif [[ "${{ inputs.app }}" == "B" ]]; then
                  echo "Lint App B"
                  # stop the build if there are Python syntax errors or undefined names
@@ -30,4 +30,6 @@ jobs:
                  echo "Lint App C"
                  echo "Lining for Java Meven completed"
                 fi             
-           
+              if: ${{ inputs.app == 'A' }}
+              working-directory: ./react-app
+   
