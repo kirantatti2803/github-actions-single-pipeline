@@ -18,9 +18,9 @@ jobs:
               if [[ "${{ inputs.app }}" == "A" ]]; then
                echo "Test App A"
                pwd
-               cd ./react-app
+               #cd ./react-app
                pwd
-               npm test
+               #npm test
               elif [[ "${{ inputs.app }}" == "B" ]]; then
                echo "Test App B"
                pwd

@@ -24,7 +24,8 @@ jobs:
             echo "Current directory:"
             pwd
             cd $APP_PATH
-            npm ci
+            pwd
+            #npm ci
           elif [[ "${{ inputs.app }}" == "B" ]]; then
             echo "Installing Dependencies for App B"
             export APP_PATH="${{ env.APP_B_PATH }}"
