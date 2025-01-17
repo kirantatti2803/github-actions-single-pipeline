@@ -9,8 +9,6 @@ on:
               default: "A"
               
 jobs:
-    ci:
-        runs-on: ubuntu-latest
     pre-build:
         uses:  ./.github/workflows/pre-build.yml
         with: 
