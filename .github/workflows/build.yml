@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      APP_A_PATH: "./react-app"
+      APP_A_PATH: "react-app"
       APP_B_PATH: "./pypython"
       APP_C_PATH: "./java-maven"
     steps:
@@ -23,7 +23,7 @@ jobs:
             export APP_PATH="${{ env.APP_A_PATH }}"
             echo "Current directory:"
             pwd
-            #cd $APP_PATH
+            cd $APP_PATH
             pwd
             npm ci
           elif [[ "${{ inputs.app }}" == "B" ]]; then
@@ -43,6 +43,6 @@ jobs:
             echo "Unknown application type: ${{ inputs.app }}"
             exit 1
           fi
-        if: ${{ inputs.app == 'A' }}
-        working-directory: ./react-app
+        #if: ${{ inputs.app == 'A' }}
+        #working-directory: react-app
    
