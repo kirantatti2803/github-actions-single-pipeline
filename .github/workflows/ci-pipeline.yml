@@ -1,0 +1,31 @@
+name: Single CI Pipeline
+
+on:
+    workflow_dispatch:
+        inputs:
+            app:
+              description:  "The Application choices A, B or C"
+              required: true
+              default: "A"
+              
+jobs:
+    pre-build:
+        uses: ./.github/workflows/pre-build.yml
+        with: 
+            app: ${{ inputs.app }}
+
+    build:
+        uses: ./.github/workflows/build.yml
+        with: 
+            app: ${{ inputs.app }}
+
+    test:
+        uses: ./.github/workflows/test.yml
+        with: 
+            app: ${{ inputs.app }}
+
+    lint:
+        uses: ./.github/workflows/lint.yml
+        with: 
+            app: ${{ inputs.app }}
+
