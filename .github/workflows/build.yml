@@ -22,7 +22,7 @@ jobs:
              echo "Installing Dependencies for  App A"
              export APP_PATH=${{ env.APP_A_PATH }}
              pwd
-             cd ./react-app
+             #cd ./react-app
              pwd
              npm ci
             elif [[ "${{ inputs.app }}" == "B" ]]; then
